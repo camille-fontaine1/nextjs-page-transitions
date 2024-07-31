@@ -1,5 +1,5 @@
 "use client";
-import { useWizardContext } from "@/app/(pages)/(wizard)/_context/wizard-context";
+import { useWizardContext } from "@/app/(pages)/(wizard)/_context/wizard-hook";
 import { useEffect } from "react";
 
 export default function Page() {
