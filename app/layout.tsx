@@ -25,7 +25,7 @@ export default function RootLayout({
       style={{ fontSize: 18 }}
     >
       <body className={`${font.className} h-full flex flex-col`}>
-        <nav>
+        <nav className="mb-8">
           <div className="px-8 py-4 shadow-sm flex items-center z-50 relative bg-white gap-8">
             <Link href="/" className="flex items-center gap-4">
               <Image src={logo} alt="Home" width={40} height={40} />
@@ -35,7 +35,7 @@ export default function RootLayout({
             <Link href="/page">My Projects</Link>
           </div>
         </nav>
-        {children}
+        <div className="flex-1">{children}</div>
       </body>
     </html>
   );

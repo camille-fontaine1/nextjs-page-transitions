@@ -6,7 +6,7 @@ export default function Page() {
   const wizardContext = useWizardContext();
 
   useEffect(() => {
-    wizardContext.reset();
+    wizardContext.ready();
   }, []);
 
   function onBack() {
