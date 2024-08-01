@@ -27,35 +27,35 @@ export function useWizardContext() {
     navigate(Action.Back, href, context, router);
   }
 
-  /** Moves the content back to its original position. */
-  function reset() {
+  /** Starts the 'in' animation of the current page. */
+  function ready() {
     if (context.isAnimationCompleted.current == null) {
       return;
     }
 
-    // Reset the position of the content if the start animation is completed, or mark it as pending otherwise
+    // Starts the animation now if the 'out' animation has completed, or mark it as pending otherwise
     if (context.isAnimationCompleted.current === true) {
       setTimeout(() => {
-        const animation = getEndAnimationByAction(context.action.current!);
+        const animation = getInAnimation(context.action.current!);
         context.setAnimation(animation);
       }, TICK);
     } else {
-      context.pendingReset.current = reset;
+      context.pendingReset.current = ready;
     }
   }
 
-  return { next, back, reset };
+  return { next, back, ready };
 }
 
 // Private helper functions
 
-/** Gets the CSS class to use to animate the page transition before the navigation. */
-function getStartAnimationByAction(action: Action) {
+/** Gets the CSS class required to animate the page transition before the navigation. */
+function getOutAnimation(action: Action) {
   return action === Action.Back ? "animate-slide-right" : "animate-slide-left";
 }
 
-/** Gets the CSS class to use to animate the page transition after the navigation. */
-function getEndAnimationByAction(action: Action) {
+/** Gets the CSS class required to animate the page transition after the navigation. */
+function getInAnimation(action: Action) {
   return action === Action.Next
     ? "animate-slide-right-reverse"
     : "animate-slide-left-reverse";
@@ -74,7 +74,7 @@ function navigate(
   context.isAnimationCompleted.current = false;
 
   // Start the animation
-  const animation = getStartAnimationByAction(action);
+  const animation = getOutAnimation(action);
   context.setAnimation(animation);
 
   // Wait for the animation to be completed before navigating
