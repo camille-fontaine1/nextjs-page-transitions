@@ -9,12 +9,12 @@ const TICK = 1; //milliseconds
 /** Allows to navigate back and forth within a wizard with automatic page transition on each navigation. */
 export function useWizardContext() {
   const wizardContext = useContext(WizardContext);
+  const router = useRouter();
 
   if (!wizardContext) {
     throw new Error("WizardContext was not instantiated.");
   }
 
-  const router = useRouter();
   const context = wizardContext;
 
   /** Navigate to the page provided, using the 'Next' animation. */
