@@ -14,7 +14,7 @@ export default function Page() {
   }
 
   return (
-    <main>
+    <main className="mb-8">
       <h1 className="font-bold text-6xl text-center">Create a Project</h1>
 
       <div className="mt-16">
