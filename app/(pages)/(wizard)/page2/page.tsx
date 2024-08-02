@@ -18,7 +18,7 @@ export default function Page() {
   }
 
   return (
-    <main>
+    <main className="mb-8">
       <h1 className="font-bold text-6xl text-center">Add a Notebook</h1>
 
       <p className="mt-16">

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-column h-full items-center">
+    <main className="flex flex-column h-full items-center mb-8">
       <div className="px-4 w-full md:max-w-screen-md md:mx-auto">
         <h1 className="font-bold text-6xl text-center">Page Transitions</h1>
 
