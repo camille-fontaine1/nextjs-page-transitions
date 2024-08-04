@@ -1,16 +1,19 @@
 "use client";
-import { useWizardContext } from "@/app/(pages)/(wizard)/_context/wizard-hook";
+
 import { useEffect } from "react";
+import { useTransitions } from "../_hooks/use-transitions";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const wizardContext = useWizardContext();
+  const transitions = useTransitions();
+  const router = useRouter();
 
   useEffect(() => {
-    wizardContext.ready();
+    transitions.slideIntoViewport();
   }, []);
 
   function onNext() {
-    wizardContext.next("/page2");
+    transitions.slideLeft().then(() => router.push("/page2"));
   }
 
   return (
