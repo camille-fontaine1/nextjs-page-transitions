@@ -1,5 +1,8 @@
 This project uses Next.js 14 App Router to implement page transitions without the use of a third party library.
 
+# Demo
+[GitHub Pages](https://camille-fontaine1.github.io/nextjs-page-transitions/)
+
 # To run the project
 1. Clone the repository.
 2. Run `npm i`.
