@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/icon.png";
+import '../plugin/styles/slide-animation.css';
 
 const font = DM_Sans({ subsets: ["latin"] });
 

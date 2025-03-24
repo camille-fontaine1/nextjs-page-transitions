@@ -1,18 +1,19 @@
 "use client";
 import { useEffect } from "react";
-import { useTransitions } from "../_hooks/use-transitions";
+import { usePageTransitions } from "../../../../plugin/hooks/use-page-transitions";
 import { useRouter } from "next/navigation";
+import { FlowType } from "@/plugin/types/flow-type";
 
 export default function Page() {
-  const transitions = useTransitions();
+  const transitions = usePageTransitions();
   const router = useRouter();
 
   useEffect(() => {
-    transitions.slideIntoViewport();
+    transitions.show();
   }, []);
 
   function onBack() {
-    transitions.slideRight().then(() => router.push("/page2"));
+    transitions.hide(FlowType.Previous).then(() => router.push("/page2"));
   }
 
   return (
