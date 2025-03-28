@@ -1,0 +1,57 @@
+.foo {
+  font: inherit;
+}
+
+/* Slide animation */
+
+@keyframes slide-left-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-left-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-right-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-left-out {
+  animation: slide-left-out ease-in forwards;
+}
+
+.slide-left-in {
+  animation: slide-left-in ease-out;
+}
+
+.slide-right-out {
+  animation: slide-right-out ease-in forwards;
+}
+
+.slide-right-in {
+  animation: slide-right-in ease-out;
+}

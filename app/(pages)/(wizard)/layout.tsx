@@ -1,15 +1,22 @@
 "use client";
 
-import { TransitionProvider } from "./_components/transition-provider";
+import { AnimationType, PageTransitionsConfiguration, PageTransitionsProvider } from "@/app/page-transitions";
+
 
 export default function WizardLayout({ children }: React.PropsWithChildren) {
+  const config: PageTransitionsConfiguration = {
+    animation: {
+      type: AnimationType.SlideHorizontally,
+      duration: 400,
+    },
+  };
   return (
-    <TransitionProvider containerClassName="h-full">
+    <PageTransitionsProvider config={config}>
       <div className="flex flex-column h-full items-center">
         <div className="px-4 w-full md:max-w-screen-md md:mx-auto">
           {children}
         </div>
       </div>
-    </TransitionProvider>
+    </PageTransitionsProvider>
   );
 }
